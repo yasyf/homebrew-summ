@@ -47,7 +47,7 @@ class RedisStack < Formula
   end
 
   service do
-    run server_path
+    run @formula.server_path
     keep_alive true
     error_log_path var/"log/redis.log"
     log_path var/"log/redis.log"
