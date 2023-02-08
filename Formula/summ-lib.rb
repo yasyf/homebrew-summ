@@ -28,13 +28,10 @@ class SummLib < Formula
 
   depends_on "python@3.11"
 
-  on_linux do
-    ignore_missing_libraries(/libgfortran/, /libquadmath/)
-  end
-
   if OS.linux?
     require "extend/os/linkage_checker"
-    LinkageChecker::SYSTEM_LIBRARY_ALLOWLIST << "libz.so.1" if defined?(LinkageChecker::SYSTEM_LIBRARY_ALLOWLIST)
+    LinkageChecker::SYSTEM_LIBRARY_ALLOWLIST << "libz.so.1"
+    send(:ignore_missing_libraries, /libgfortran/, /libquadmath/)
   end
 
   def install
