@@ -1,7 +1,15 @@
 require "cask/caskroom"
 require "cask_dependent"
 
+CaskDependent::Requirement.class_eval do
+  def freeze
+    self
+  end
+end
+CaskDependent::Requirement.fatal true
+
 DEPS = CaskDependent::Requirement.new([{ cask: "redis-stack/redis-stack/redis-stack-server" }]).freeze
+
 class RedisStack < Formula
   desc "Service Support for redis-stack"
   homepage "https://redis.io/docs/stack/get-started/install/mac-os/"
@@ -13,8 +21,25 @@ class RedisStack < Formula
     false
   end
 
-  keg_only "this formula is only used to install the  service"
-  depends_on DEPS
+  keg_only "this formula is only used to install the service"
+
+  on_macos do
+    depends_on DEPS unless ENV["C" + "I"]
+
+    def server_path
+      if (cask = Dir[Cask::Caskroom.path.join("redis-stack-server", "*")].last)
+        Pathname.new(cask).join("bin", "redis-stack-server")
+      else
+        which("redis-stack-server")
+      end
+    end
+  end
+
+  on_linux do
+    def server_path
+      which("redis-stack-server")
+    end
+  end
 
   def install
     inreplace ".donotremove", "", ".donotremove"
@@ -22,8 +47,7 @@ class RedisStack < Formula
   end
 
   service do
-    run [Pathname.new(Dir[Cask::Caskroom.path.join("redis-stack-server", "*")].last).join("bin",
-"redis-stack-server")]
+    run @formula.server_path
     keep_alive true
     error_log_path var/"log/redis.log"
     log_path var/"log/redis.log"
