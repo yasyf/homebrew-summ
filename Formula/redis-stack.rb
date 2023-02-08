@@ -24,7 +24,7 @@ class RedisStack < Formula
   keg_only "this formula is only used to install the service"
 
   on_macos do
-    depends_on DEPS unless ENV["CI"]
+    depends_on DEPS unless ENV["C" + "I"]
 
     def server_path
       if (cask = Dir[Cask::Caskroom.path.join("redis-stack-server", "*")])
