@@ -22,16 +22,9 @@ class SummLib < Formula
 
   desc "Summ Python Library"
   homepage "https://github.com/yasyf/summ"
-  url "https://files.pythonhosted.org/packages/36/5c/6cc94e018ca07d9a31a340f6057939227cb9d3f29c315cab36798669ae90/summ-0.1.12.tar.gz"
-  sha256 "6fe787cccc829fd7baef77a8558861587f262c537cce7d6c5160b45be08b9fa4"
+  url "https://files.pythonhosted.org/packages/e3/03/c938b8f6cd6413249b592314b5423c237d61b0c06893223bafc047b74475/summ-0.1.13.tar.gz"
+  sha256 "d94cc1d960ec4ff827d047e880ff31a7383a8c260259633d82a912d630c990af"
   license "AGPL-3.0-only"
-
-  bottle do
-    root_url "https://github.com/yasyf/homebrew-summ/releases/download/summ-lib-0.1.12"
-    sha256 cellar: :any,                 arm64_ventura: "2b021a85ce532207183f435fdf74ecbd72a4be253b755fd5a2086ebb5b3cd00d"
-    sha256 cellar: :any,                 monterey:      "b75c72f0a74ef48c6d23a9ca8748c22a12a5257a83c443bc4014d81a56f90b9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "263b8fb36554e358ba1515b315debc9915f18fb99f92d94c86c7960b4da131d0"
-  end
 
   depends_on "python@3.11"
 
