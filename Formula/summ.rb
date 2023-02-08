@@ -3,18 +3,19 @@ class Summ < Formula
 
   desc "GPT-based Conversation Summarizer"
   homepage "https://summ.rtfd.io"
-  url "https://raw.githubusercontent.com/yasyf/summ/0.1.7/README.md", using: :nounzip
-  sha256 "c27c5fce3526726fc3d52ad8c65850b100dc6895bea23d856e9d0e2f4590dc6a"
+  url "https://github.com/yasyf/summ/archive/refs/tags/0.1.11.tar.gz"
+  sha256 "9214201815f6d9a89a44d5070a3bb12a718c6ee10d09eb766523cc5e6fc0b0f6"
   license "AGPL-3.0-only"
 
   depends_on "yasyf/summ/redis-stack"
   depends_on "yasyf/summ/summ-lib"
 
   def install
-    prefix.install "objects.inv"
+    prefix.install "docs"
   end
 
   test do
-    shell_output("#{bin}/summ-example --help")
+    ENV["OPENAI_API_KEY"] = "sk-1234567890"
+    shell_output("#{Formula["summ-lib"].bin}/summ-example --help")
   end
 end
