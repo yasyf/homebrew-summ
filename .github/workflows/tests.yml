@@ -10,15 +10,6 @@ jobs:
       matrix:
         os: [ubuntu-22.04, macos-12]
     runs-on: ${{ matrix.os }}
-    services:
-      redis:
-        image: redis/redis-stack-server
-        ports: ["6379:6379"]
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -35,6 +26,12 @@ jobs:
       - name: Install Homebrew Bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
+
+      - run: brew install --cask redis-stack/redis-stack/redis-stack-server
+        if: runner.os == 'macOS'
+
+      - run: docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
+        if: runner.os != 'macOS'
 
       - run: brew test-bot --only-cleanup-before
 
