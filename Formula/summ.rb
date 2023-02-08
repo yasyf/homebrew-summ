@@ -3,8 +3,8 @@ class Summ < Formula
 
   desc "GPT-based Conversation Summarizer"
   homepage "https://github.com/yasyf/summ"
-  url "https://files.pythonhosted.org/packages/1c/3c/0a5715b108c0177863bf6138d08c3ea190cc54a39cffe63f12ae89a476b7/summ-0.1.4.tar.gz"
-  sha256 "e685ec64920cac7f2bf61689bfbf1fcbcb1ac5d9b57421a06daf66d789d4585e"
+  url "https://files.pythonhosted.org/packages/30/60/918eeab444c441ac4064bb60b3681d93a102c2ef4b3c3804803f2e9744de/summ-0.1.7.tar.gz"
+  sha256 "c27c5fce3526726fc3d52ad8c65850b100dc6895bea23d856e9d0e2f4590dc6a"
   license "AGPL-3.0-only"
 
   depends_on "python@3.11"
