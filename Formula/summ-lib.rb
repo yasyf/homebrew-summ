@@ -30,7 +30,7 @@ class SummLib < Formula
 
   if OS.linux?
     require "extend/os/linkage_checker"
-    LinkageChecker::SYSTEM_LIBRARY_ALLOWLIST << "libz.so.1"
+    LinkageChecker::SYSTEM_LIBRARY_ALLOWLIST += ["libz.so.1"]
     send(:ignore_missing_libraries, /libgfortran/, /libquadmath/)
   end
 
