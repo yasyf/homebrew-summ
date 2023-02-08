@@ -6,7 +6,7 @@ CaskDependent::Requirement.class_eval do
     self
   end
 end
-CaskDependent::Requirement.fatal = true
+CaskDependent::Requirement.fatal true
 
 DEPS = CaskDependent::Requirement.new([{ cask: "redis-stack/redis-stack/redis-stack-server" }]).freeze
 
