@@ -26,6 +26,12 @@ class SummLib < Formula
   sha256 "6fe787cccc829fd7baef77a8558861587f262c537cce7d6c5160b45be08b9fa4"
   license "AGPL-3.0-only"
 
+  bottle do
+    root_url "https://github.com/yasyf/homebrew-summ/releases/download/summ-lib-0.1.12"
+    sha256 cellar: :any,                 monterey:     "b75c72f0a74ef48c6d23a9ca8748c22a12a5257a83c443bc4014d81a56f90b9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "263b8fb36554e358ba1515b315debc9915f18fb99f92d94c86c7960b4da131d0"
+  end
+
   depends_on "python@3.11"
 
   if OS.linux?
