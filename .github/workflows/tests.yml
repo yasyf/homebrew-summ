@@ -27,7 +27,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
 
-      - run: brew install redis-stack/redis-stack/redis-stack-server
+      - run: brew install --cask redis-stack/redis-stack/redis-stack-server
 
       - run: brew test-bot --only-cleanup-before
 
