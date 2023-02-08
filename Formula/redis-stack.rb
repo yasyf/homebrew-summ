@@ -1,7 +1,14 @@
 require "cask/caskroom"
 require "cask_dependent"
 
+CaskDependent::Requirement.class_eval do
+  def freeze
+    self
+  end
+end
+
 DEPS = CaskDependent::Requirement.new([{ cask: "redis-stack/redis-stack/redis-stack-server" }]).freeze
+
 class RedisStack < Formula
   desc "Service Support for redis-stack"
   homepage "https://redis.io/docs/stack/get-started/install/mac-os/"
@@ -13,7 +20,7 @@ class RedisStack < Formula
     false
   end
 
-  keg_only "this formula is only used to install the  service"
+  keg_only "this formula is only used to install the service"
   depends_on DEPS
 
   def install
