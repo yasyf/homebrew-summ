@@ -7,9 +7,8 @@ class Summ < Formula
   sha256 "e685ec64920cac7f2bf61689bfbf1fcbcb1ac5d9b57421a06daf66d789d4585e"
   license "AGPL-3.0-only"
 
-  depends_on "yasyf/summ/redis-stack"
-
   depends_on "python@3.11"
+  depends_on "yasyf/summ/redis-stack"
 
   def install
     ENV["BLAS"] = ENV["LAPACK"] = ENV["ATLAS"] = "None"
@@ -22,6 +21,6 @@ class Summ < Formula
   end
 
   test do
-    shell_output("#{bin}/summ --help", 0)
+    shell_output("#{bin}/summ --help")
   end
 end
