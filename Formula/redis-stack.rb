@@ -21,7 +21,9 @@ class RedisStack < Formula
   end
 
   keg_only "this formula is only used to install the service"
-  depends_on DEPS
+  on_macos do
+    depends_on DEPS
+  end
 
   def install
     inreplace ".donotremove", "", ".donotremove"
