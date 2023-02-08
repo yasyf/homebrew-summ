@@ -27,8 +27,8 @@ class RedisStack < Formula
     depends_on DEPS unless ENV["C" + "I"]
 
     def server_path
-      if (cask = Dir[Cask::Caskroom.path.join("redis-stack-server", "*")])
-        Pathname.new(cask.last).join("bin", "redis-stack-server")
+      if (cask = Dir[Cask::Caskroom.path.join("redis-stack-server", "*")].last)
+        Pathname.new(cask).join("bin", "redis-stack-server")
       else
         which("redis-stack-server")
       end
