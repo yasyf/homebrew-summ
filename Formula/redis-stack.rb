@@ -6,6 +6,7 @@ CaskDependent::Requirement.class_eval do
     self
   end
 end
+CaskDependent::Requirement.fatal = true
 
 DEPS = CaskDependent::Requirement.new([{ cask: "redis-stack/redis-stack/redis-stack-server" }]).freeze
 
@@ -21,8 +22,23 @@ class RedisStack < Formula
   end
 
   keg_only "this formula is only used to install the service"
+
   on_macos do
     depends_on DEPS
+
+    def server_path
+      if (cask = Dir[Cask::Caskroom.path.join("redis-stack-server", "*")])
+        Pathname.new(cask.last).join("bin", "redis-stack-server")
+      else
+        which("redis-stack-server")
+      end
+    end
+  end
+
+  on_linux do
+    def server_path
+      which("redis-stack-server")
+    end
   end
 
   def install
@@ -31,8 +47,7 @@ class RedisStack < Formula
   end
 
   service do
-    run [Pathname.new(Dir[Cask::Caskroom.path.join("redis-stack-server", "*")].last).join("bin",
-"redis-stack-server")]
+    run server_path
     keep_alive true
     error_log_path var/"log/redis.log"
     log_path var/"log/redis.log"

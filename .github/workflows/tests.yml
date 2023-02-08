@@ -32,7 +32,11 @@ jobs:
           brew install --cask redis-stack/redis-stack/redis-stack-server
         if: runner.os == 'macOS'
 
-      - run: docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
+      - run: |
+          curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+          sudo apt-get update
+          sudo apt-get install -y redis-stack-server
         if: runner.os != 'macOS'
 
       - run: brew test-bot --only-cleanup-before
