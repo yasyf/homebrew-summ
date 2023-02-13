@@ -1,0 +1,16 @@
+[34m==>[0m [1mbrew linkage --cached summ-lib[0m
+System libraries:
+  /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+  /usr/lib/libSystem.B.dylib
+  /usr/lib/libc++.1.dylib
+  /usr/lib/libexslt.0.dylib
+  /usr/lib/libffi.dylib
+  /usr/lib/libiconv.2.dylib
+  /usr/lib/libxml2.2.dylib
+  /usr/lib/libxslt.1.dylib
+  /usr/lib/libz.1.dylib
+Variable-referenced libraries:
+  @loader_path/../.dylibs/libopenblas64_.0.dylib
+  @loader_path/libgcc_s.1.1.dylib
+  @loader_path/libgfortran.5.dylib
+  @loader_path/libquadmath.0.dylib
