@@ -28,8 +28,9 @@ class SummLib < Formula
 
   bottle do
     root_url "https://github.com/yasyf/homebrew-summ/releases/download/summ-lib-0.1.14"
-    sha256 cellar: :any,                 monterey:     "df40364e8a12b0244386d6c8e86cdd8de8f20af5879b5717fc1e9fa09816f30f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6d628777c2a9dd13cb7eb4281f7c77dc04acd9a2c5e131db16767db0aa9d37c1"
+    sha256                               arm64_ventura: "c9c440fd80f5640f274fe8d845f7884cdee733bd3ca9e8c2c1799993c638cfc1"
+    sha256 cellar: :any,                 monterey:      "df40364e8a12b0244386d6c8e86cdd8de8f20af5879b5717fc1e9fa09816f30f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d628777c2a9dd13cb7eb4281f7c77dc04acd9a2c5e131db16767db0aa9d37c1"
   end
 
   depends_on "python@3.11"
