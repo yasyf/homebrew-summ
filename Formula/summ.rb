@@ -3,8 +3,8 @@ class Summ < Formula
 
   desc "GPT-based Conversation Summarizer"
   homepage "https://summ.rtfd.io"
-  url "https://github.com/yasyf/summ/archive/refs/tags/0.1.14.tar.gz"
-  sha256 "5679c52b92a4e542dd2050a184a41e02db82d0e6628fdd1857b615d6d1c560b9"
+  url "https://github.com/yasyf/summ/archive/refs/tags/0.1.16.tar.gz"
+  sha256 "092d115f3c3b5c812917aa18eb1f7cd5705bc076d4f76426d4e9690f56b3145d"
   license "AGPL-3.0-only"
 
   depends_on "yasyf/summ/redis-stack"
