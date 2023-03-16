@@ -22,15 +22,13 @@ class SummLib < Formula
 
   desc "Summ Python Library"
   homepage "https://github.com/yasyf/summ"
-  url "https://files.pythonhosted.org/packages/65/a7/36df300c4b1c6a783903b3748cf21de8ce5df5e546b786c3221d58b65dae/summ-0.1.14.tar.gz"
-  sha256 "ab880b79882c40defe39261efac643e50dd8bec218e3640153450067ef869e2b"
+  url "https://files.pythonhosted.org/packages/33/98/1c4f3ed56c782f3cd5d844089aa8518ecf7b014aba4849b08739cf08a237/summ-0.1.16.tar.gz"
+  sha256 "61d99a86705d9e843061dd6d2b9fdcf4bde963df2ee5769d32ad8e630ea5718d"
   license "AGPL-3.0-only"
 
   bottle do
-    root_url "https://github.com/yasyf/homebrew-summ/releases/download/summ-lib-0.1.14"
-    sha256                               arm64_ventura: "c9c440fd80f5640f274fe8d845f7884cdee733bd3ca9e8c2c1799993c638cfc1"
-    sha256 cellar: :any,                 monterey:      "df40364e8a12b0244386d6c8e86cdd8de8f20af5879b5717fc1e9fa09816f30f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d628777c2a9dd13cb7eb4281f7c77dc04acd9a2c5e131db16767db0aa9d37c1"
+    root_url "https://github.com/yasyf/homebrew-summ/releases/download/summ-lib-0.1.16"
+    sha256 arm64_ventura: "19a241b3ccfbef79b75dd70694308c0df89745fa3e8e487e6ac0a9645585a2ec"
   end
 
   depends_on "python@3.11"
