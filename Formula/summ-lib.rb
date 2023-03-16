@@ -31,7 +31,13 @@ class SummLib < Formula
     sha256 arm64_ventura: "19a241b3ccfbef79b75dd70694308c0df89745fa3e8e487e6ac0a9645585a2ec"
   end
 
-  depends_on "python@3.11"
+  on_macos do
+    depends_on "python@3.11"
+  end
+
+  on_linux do
+    depends_on "python"
+  end
 
   if OS.linux?
     require "extend/os/linkage_checker"
