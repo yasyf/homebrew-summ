@@ -22,8 +22,8 @@ class SummLib < Formula
 
   desc "Summ Python Library"
   homepage "https://github.com/yasyf/summ"
-  url "https://files.pythonhosted.org/packages/33/98/1c4f3ed56c782f3cd5d844089aa8518ecf7b014aba4849b08739cf08a237/summ-0.1.16.tar.gz"
-  sha256 "61d99a86705d9e843061dd6d2b9fdcf4bde963df2ee5769d32ad8e630ea5718d"
+  url "https://files.pythonhosted.org/packages/1b/04/7b41caa394a969150c542e2144d481b01d69d18927ef262f1fb18841d229/summ-0.1.17.tar.gz"
+  sha256 "4521e4997b4634af62a98e6d67678ad3acea5d65883d0dc7be820170ff69e74b"
   license "AGPL-3.0-only"
 
   bottle do
