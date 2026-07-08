@@ -1,5 +1,5 @@
 Language::Python::Virtualenv::Virtualenv.prepend(Module.new do
-  def pip_install_with_deps_and_link(buildpath)
+  define_method(:pip_install_with_deps_and_link) do |buildpath|
     pip_install(buildpath) # install with all deps
     do_pip "uninstall", "-y", buildpath.stem.split("-").first # uninstall root package
     pip_install_and_link buildpath # install and link root package
@@ -7,11 +7,11 @@ Language::Python::Virtualenv::Virtualenv.prepend(Module.new do
 
   private
 
-  def do_pip(*args)
+  define_method(:do_pip) do |*args|
     @formula.system @venv_root/"bin/pip", *args
   end
 
-  def do_install(targets)
+  define_method(:do_install) do |targets|
     targets = Array(targets)
     do_pip "install", "-v", "--ignore-installed", *targets
   end

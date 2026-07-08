@@ -2,9 +2,7 @@ require "cask/caskroom"
 require "cask_dependent"
 
 CaskDependent::Requirement.class_eval do
-  def freeze
-    self
-  end
+  define_method(:freeze) { self }
 end
 CaskDependent::Requirement.fatal true
 
@@ -25,7 +23,9 @@ class RedisStack < Formula
 
   on_macos do
     depends_on DEPS unless ENV["C" + "I"]
+  end
 
+  if OS.mac?
     def server_path
       if (cask = Dir[Cask::Caskroom.path.join("redis-stack-server", "*")].last)
         Pathname.new(cask).join("bin", "redis-stack-server")
@@ -33,9 +33,7 @@ class RedisStack < Formula
         which("redis-stack-server")
       end
     end
-  end
-
-  on_linux do
+  else
     def server_path
       which("redis-stack-server")
     end
